@@ -46,6 +46,80 @@
 4.  **Open the app**:
     Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
 
+## 📧 Email Integrations
+
+Project Planner includes a built-in notification system that sends automated emails to keep your team informed about what matters most — without needing to check the app constantly.
+
+### Notification Types
+
+| Trigger | Recipients | Description |
+|---|---|---|
+| **Pending Project** | Project owner, assigned members | Sent when a project has had no activity for a configurable period (default: 3 days) |
+| **Review Requested** | Reviewer(s) | Triggered when a PR or task is marked as "Needs Review" |
+| **Review Completed** | Task author | Sent when a reviewer approves or requests changes |
+| **Milestone Approaching** | All project members | Reminder sent 3 days and 1 day before a milestone deadline |
+| **Milestone Overdue** | Project owner, managers | Sent the day a milestone passes without being marked complete |
+| **Task Assigned** | Assignee | Triggered when a task is assigned or reassigned to a team member |
+| **Deployment Status** | Project owner | Sent on CI/CD pipeline success or failure tied to a project task |
+
+### Configuration
+
+Email notifications can be configured per-user in **Settings → Notifications**, or at the project level by a project owner. Supported providers:
+
+- **SMTP** — bring your own mail server
+- **Resend** — recommended for production (`RESEND_API_KEY`)
+- **SendGrid** — via `SENDGRID_API_KEY`
+
+Set the following environment variables to enable email:
+
+```env
+EMAIL_PROVIDER=resend          # resend | sendgrid | smtp
+RESEND_API_KEY=re_xxxxxxxxxxxx
+EMAIL_FROM=noreply@yourdomain.com
+```
+
+### Email Design
+
+All emails follow a consistent, minimal layout:
+
+```
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│   [ Project Planner Logo ]                          │
+│                                                     │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│   Hi Sarah,                                         │
+│                                                     │
+│   ⚠️  You have a pending review                     │
+│                                                     │
+│   Project:   Mobile App Redesign                    │
+│   Task:      Update onboarding flow (#42)           │
+│   Requested: 2 days ago by James K.                 │
+│   Status:    Awaiting your review                   │
+│                                                     │
+│          [ View Task & Review ]                     │
+│                                                     │
+├─────────────────────────────────────────────────────┤
+│   You're receiving this because you are a           │
+│   reviewer on this project.                         │
+│   Manage preferences · Unsubscribe                  │
+└─────────────────────────────────────────────────────┘
+```
+
+**Design principles:**
+- Single, clear call-to-action button per email
+- Context block (project, task, who triggered it, timestamp) above the CTA
+- Muted footer with unsubscribe and notification preferences link
+- Plain-text fallback included for all HTML emails
+- Consistent branding: white background, dark heading, accent color for the CTA button
+
+### Digest Mode
+
+Instead of per-event emails, users can opt into a **Daily Digest** — a single email summarising all activity from the past 24 hours across their projects. Sent at a configurable time (default: 8:00 AM in the user's timezone).
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) (coming soon) before submitting pull requests.
