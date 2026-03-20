@@ -1,24 +1,40 @@
 # Project Planner
 
-**Project Planner** is a modern, collaborative platform designed for efficient project management and tracking. It bridges the gap between technical and non-technical stakeholders, providing a unified source of truth for project progress.
+**Project Planner** is a modern, collaborative platform for project management and tracking. It bridges the gap between technical and non-technical stakeholders, providing a unified source of truth for project progress — from Git commits to business milestones.
 
-## 🚀 Key Features
+## Key Features
 
-- **Unified Progress Tracking**: Gain a high-level overview or dive into granular task details.
-- **Git Workflow Integration**: Seamlessly sync project milestones and task updates with Git branches, commits, and pull requests.
-- **Multi-Role Experience**: 
+- **Unified Progress Tracking** — High-level overview or granular task details, in one place.
+- **Git Workflow Integration** — Sync project milestones and tasks with branches, commits, and pull requests.
+- **Multi-Role Experience**
   - **Technical Teams**: Integrated with developer workflows and CI/CD status.
-  - **Non-Technical Stakeholders**: Clear, visual milestones and progress reports without needing to understand the code.
-- **Collaborative Planning**: Real-time updates and shared roadmaps.
+  - **Non-Technical Stakeholders**: Visual milestones and progress reports without needing to understand code.
+- **Collaborative Planning** — Real-time updates, shared roadmaps, and threaded task discussions.
+- **Automated Notifications** — Email alerts for reviews, milestones, deployments, and task assignments.
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
-- **Styling**: Vanilla CSS / Tailwind CSS (Optional)
-- **Language**: TypeScript
-- **Package Manager**: pnpm
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Package Manager | pnpm |
 
-## 🚥 Getting Started
+## Project Structure
+
+```
+project-planner/
+├── app/                  # Next.js App Router (pages, layouts, API routes)
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── docs/                 # Project documentation
+│   ├── features.md       # Feature specifications
+│   └── data-flow.md      # Data flow architecture
+└── public/               # Static assets
+```
+
+## Getting Started
 
 ### Prerequisites
 
@@ -27,26 +43,35 @@
 
 ### Installation
 
-1.  **Clone the repository**:
-    ```bash
-    git clone <repository-url>
-    cd project-planner
-    ```
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd project-planner
+   ```
 
-2.  **Install dependencies**:
-    ```bash
-    pnpm install
-    ```
+2. **Install dependencies**:
+   ```bash
+   pnpm install
+   ```
 
-3.  **Run the development server**:
-    ```bash
-    pnpm dev
-    ```
+3. **Configure environment variables** (copy and fill in):
+   ```bash
+   cp .env.example .env.local
+   ```
 
-4.  **Open the app**:
-    Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
+4. **Run the development server**:
+   ```bash
+   pnpm dev
+   ```
 
-## 📧 Email Integrations
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Documentation
+
+- [Features](docs/features.md) — Detailed breakdown of all planned features.
+- [Data Flow](docs/data-flow.md) — How data moves through the application.
+
+## Email Integrations
 
 Project Planner includes a built-in notification system that sends automated emails to keep your team informed about what matters most — without needing to check the app constantly.
 
@@ -120,10 +145,10 @@ Instead of per-event emails, users can opt into a **Daily Digest** — a single 
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) (coming soon) before submitting pull requests.
+Contributions are welcome. Please read the [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
